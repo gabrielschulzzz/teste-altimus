@@ -23,13 +23,6 @@ class EditCarUseCase {
                 throw new AppError("Preencha todos os campos", 403);
             }
 
-            const carAlreadyExist = await this.carsRepository.findByPlate(placa) 
-
-            if(carAlreadyExist) {
-                throw new AppError("Carro com esta placa ja cadastrado", 403);
-            }   
-
-
             await this.carsRepository.update({
                 quilometragem, 
                 placa, 
